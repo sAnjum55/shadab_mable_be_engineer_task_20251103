@@ -1,0 +1,99 @@
+# ==================================================
+# 🟦 GO PROJECT IGNORE
+# ==================================================
+# Go build artifacts
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.a
+
+# Go work and build dirs
+bin/
+build/
+dist/
+vendor/
+
+# Go coverage, profiling, and benchmark outputs
+coverage.out
+*.prof
+*.svg
+*.csv
+*.xlsx
+
+# ==================================================
+# 🐳 DOCKER & LOCAL SERVICES
+# ==================================================
+# ClickHouse & Grafana persistent volumes
+clickhouse_data/
+grafana_data/
+# Optional: any local Docker volume folder
+volumes/
+data/
+tmp/
+
+# Docker-compose overrides and env
+docker-compose.override.yml
+.env
+
+# ==================================================
+# 🧪 TEST OUTPUTS
+# ==================================================
+*.log
+*.tmp
+*.cache
+__debug_bin
+*.pprof
+*.testresults
+
+# ==================================================
+# 🧰 IDE / EDITOR CONFIGS
+# ==================================================
+# VS Code
+.vscode/
+# JetBrains (GoLand, IntelliJ)
+.idea/
+# Others
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# ==================================================
+# 🪟 SYSTEM FILES
+# ==================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==================================================
+# 🧩 PROJECT-SPECIFIC FILES (Assignment)
+# ==================================================
+# Benchmark spreadsheets
+pipeline_library_benchmarks.xlsx
+# Local architecture report drafts
+architecture/coverage_report.png
+architecture/architecture_draft.md
+
+# Demo video or recording
+*.mp4
+*.mov
+*.avi
+
+# ==================================================
+# 🧾 OTHER OPTIONAL FILES
+# ==================================================
+# Node modules (if you add frontend dashboards later)
+node_modules/
+# Temp notes
+notes.txt
+todo.txt
+README_draft.md
