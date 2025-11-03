@@ -75,8 +75,13 @@ func (p *Pipeline[T]) emitMetrics(metricsChan <-chan StageMetrics) {
 	}()
 
 	// ✅ NEW BLOCK: Ensure table exists before inserting
+	if err := conn.Exec(ctx, `CREATE DATABASE IF NOT EXISTS mable`); err != nil {
+		log.Printf("Failed to ensure database exists: %v", err)
+	}
+
+	// Ensure the table exists
 	if err := conn.Exec(ctx, `
-		CREATE TABLE IF NOT EXISTS mable.pipeline_metrics (
+		CREATE TABLE IF NOT EXISTS pipeline_metrics (
 			stage_name String,
 			batch_id UInt32,
 			input_count UInt32,

@@ -52,7 +52,7 @@ This starts:
 ## 📊 View Metrics in Grafana
 
 ### Open Grafana
-Visit [http://localhost:3000](http://localhost:3000)
+Visit [http://localhost:3000/public-dashboards/a9c65d60162e4b049f02cdcfd45bb8c2](http://localhost:3000/public-dashboards/a9c65d60162e4b049f02cdcfd45bb8c2)
 
 **Login:**
 ```
