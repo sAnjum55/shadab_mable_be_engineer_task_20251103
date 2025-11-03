@@ -5,8 +5,8 @@ services:
     image: clickhouse/clickhouse-server:latest
     container_name: clickhouse
     ports:
-      - "8123:8123"   # Web UI / HTTP API
-      - "9000:9000"   # Native TCP protocol (used by Go client)
+      - "8123:8123"
+      - "9000:9000"
     environment:
       CLICKHOUSE_USER: default
       CLICKHOUSE_PASSWORD: mypass
@@ -22,7 +22,7 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "3000:3000"   # Grafana Web UI
+      - "3000:3000"
     environment:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: admin
@@ -31,6 +31,18 @@ services:
       - clickhouse
     volumes:
       - grafana_data:/var/lib/grafana
+
+  pipeline-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pipeline-runner
+    depends_on:
+      - clickhouse
+      - grafana
+    volumes:
+      - ./benchmarks.csv:/app/benchmarks.csv
+    command: ["--input", "pipeline/testdata/mable_event.json", "--output", "benchmarks.csv"]
 
 volumes:
   clickhouse_data:
